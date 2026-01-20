@@ -2,5 +2,5 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [],
-  base: '/mi-app-vite/'
+  base: process.env.VITE_BASE_PATH ?? '/'
 })
