@@ -1,6 +1,11 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
-export default defineConfig({
-  plugins: [],
-  base: '/mi-app-vite-1/'
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const base = env.VITE_BASE || '/'
+
+  return {
+    plugins: [],
+    base
+  }
 })
