@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_PATH: /mi-app-vite/
+          REPO_NAME: mi-app-vite-1
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

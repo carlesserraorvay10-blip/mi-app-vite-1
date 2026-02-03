@@ -1,11 +1,11 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
-  const base = env.VITE_BASE || '/'
+export default defineConfig(() => {
+  const isGitHubActions = process.env.GITHUB_ACTIONS === 'true'
+  const repoName = process.env.REPO_NAME
 
   return {
     plugins: [],
-    base
+    base: isGitHubActions && repoName ? `/${repoName}/` : '/'
   }
 })
